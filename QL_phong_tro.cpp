@@ -24,7 +24,15 @@ class KhachHang {
             this->ngaysinh = ngaysinh;
             this->sodienthoai = sodienthoai;
         }
+        void ThongTin();
 };
+
+void KhachHang::ThongTin() {
+    cout<<" - Ten khach hang: "<<hoten<<endl;
+    cout<<" - Dia chi: "<<diachi<<endl;
+    cout<<" - Ngay sinh: "<<ngaysinh<<endl;
+    cout<<" - So dien thoai: "<<sodienthoai<<endl;
+}
 
 class LoaiPhong {
     private:
@@ -96,7 +104,11 @@ class Phong{
     public:
 
         Phong() {
-
+            this->maphong = "";
+            this->maloaiphong = "";
+            this->trangthai = false;
+            this->khachhang = KhachHang();
+            this->ngaythue = "";
         }
 
         Phong(string maphong, string maloaiphong) {
@@ -116,7 +128,18 @@ class Phong{
             this->ngaythue = ngaythue;
         }
 
+        void ThongTinKhachHang();
+        void ThongTin();
+
 };
+
+void Phong::ThongTinKhachHang() {
+    khachhang.ThongTin();
+}
+
+void Phong::ThongTin() {
+    cout<<" - Phong : "<<maphong<<endl;
+}
 
 class DanhSachPhong{
     private:
@@ -229,9 +252,23 @@ void DanhSachPhong::ThuePhong() {
     getline(cin, ngaysinh);
     cout << "Nhap So Dien Thoai: ";
     getline(cin, sodienthoai);
-    phong.push_back(Phong(maphong, loaiphong, KhachHang(hoten, ), ngaythue));
+    phong.push_back(Phong(maphong, loaiphong, KhachHang(hoten, diachi, ngaysinh, sodienthoai), ngaythue));
+    write();
 }
 
+void DanhSachPhong::ChinhSuaPhong() {
+
+}
+
+void DanhSachPhong::XoaPhong() {
+
+}
+
+void DanhSachPhong::DanhSachThuePhong() {
+    for(vector<Phong>::iterator p = phong.begin(); p!=phong.end(); p++) {
+        p->ThongTin();
+    }
+}
 
 int main() {
 
