@@ -198,6 +198,7 @@ class DanhSachPhong{
         void ThongTinLoaiPhong();
         void ThemLoaiPhong();
         void ThuePhong();
+        void PhongDaThue();
         void ChinhSuaPhong();
         void XoaPhong();
         void DanhSachThuePhong();
@@ -260,13 +261,19 @@ void DanhSachPhong::ChinhSuaPhong() {
 
 }
 
-void DanhSachPhong::XoaPhong() {
-
+void DanhSachPhong::PhongDaThue() {
+    system("cls");
+    cout<<"---PHONG DA THUE---"<<endl;
+    for(vector<Phong>::iterator p = phong.begin(); p!=phong.end(); p++) {
+        p->ThongTin();
+    }
 }
 
 void DanhSachPhong::DanhSachThuePhong() {
+    system("cls");
+    cout<<"---KHACH HANG THUE---"<<endl;
     for(vector<Phong>::iterator p = phong.begin(); p!=phong.end(); p++) {
-        p->ThongTin();
+        p->ThongTinKhachHang();
     }
 }
 
